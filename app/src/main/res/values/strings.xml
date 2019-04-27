@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Bliss Football</string>
+    <string name="title_home">Home</string>
+    <string name="title_club">Club Football</string>
+    <string name="title_international">International Football</string>
+    <string name="legends">Know Your Legends</string>
+    <string name="coaches">Know Your Coaches</string>
+    <string name="todo">TODO</string>
+    <string name="todo1">TODO1</string>
+    <string name="title_activity_legends">Legends</string>
+    <string name="epl">English Premier League</string>
+    <string name="laliga">La Liga</string>
+    <string name="seriea">Serie A</string>
+    <string name="ligue1">Ligue 1</string>
+    <string name="bundesliga">Bundesliga</string>
+    <string name="uefa">Union of European Football Associations</string>
+    <string name="concacaf">The Confederation of North, Central American and Caribbean Association Football</string>
+    <string name="uefa1">UEFA</string>
+    <string name="concacaf1">CONCACAF</string>
+    <string name="epl1">EPL</string>
+    <string name="coaches1">Coaches</string>
+    <string name="legends1">Legends</string>
+
+
+
+
+</resources>
