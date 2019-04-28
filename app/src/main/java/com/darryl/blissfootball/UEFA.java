@@ -1,23 +1,15 @@
 package com.darryl.blissfootball;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-
 import android.support.v7.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 
@@ -117,8 +109,7 @@ public class UEFA extends AppCompatActivity {
         Number1.add(R.drawable.turkey);
         Number1.add(R.drawable.ukraine);
 
-        Intent myIntent = new Intent(getBaseContext() , RecyclerViewAdapter.class);
-        myIntent.putExtra("flags" , 1);
+        
 
     }
 
