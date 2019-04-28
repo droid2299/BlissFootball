@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 
 public class InternationalFragment extends Fragment {
 
+    public static int _utfValue ;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class InternationalFragment extends Fragment {
                 Log.d("Bliss Football" , "Button Pressed");
                 Intent myIntent = new Intent(getContext() , UEFA.class);
                 startActivity(myIntent);
+                _utfValue = 0;
 
             }
         });
@@ -42,6 +45,7 @@ public class InternationalFragment extends Fragment {
                 Log.d("Bliss Football" , "Button Pressed");
                 Intent myIntent = new Intent(getContext() , CONCACAF.class);
                 startActivity(myIntent);
+                _utfValue = 1;
 
             }
         });

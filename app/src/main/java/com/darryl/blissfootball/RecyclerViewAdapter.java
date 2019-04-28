@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipEntry;
 
 import static android.content.Intent.getIntent;
 
@@ -17,8 +18,10 @@ import static android.content.Intent.getIntent;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyView> {
 
 
+
+    //String value = getIntent.getExtra("String key which you used when send value");
     private ArrayList<Integer> list;
-    ArrayList<Integer> Number1;
+    ArrayList<Integer> Number1 , Number2;
 
     public class MyView extends RecyclerView.ViewHolder {
 
@@ -62,10 +65,32 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Number1.add(R.drawable.turkey);
         Number1.add(R.drawable.ukraine);
 
-        //holder.textView.setText(list.get(position));
-        holder.textView.setImageResource(Number1.get(position));
-        //holder.textView.setImageResource(R.drawable.belgium);
+        Number2 = new ArrayList<Integer>();
+        Number2.add(R.drawable.canada);
+        Number2.add(R.drawable.costarica);
+        Number2.add(R.drawable.uba);
+        Number2.add(R.drawable.elsalvador);
+        Number2.add(R.drawable.guatemala);
+        Number2.add(R.drawable.haiti);
+        Number2.add(R.drawable.honduras);
+        Number2.add(R.drawable.mexico);
+        Number2.add(R.drawable.nicaragua);
+        Number2.add(R.drawable.panama);
+        Number2.add(R.drawable.suriname);
+        Number2.add(R.drawable.us);
 
+        //Number2.add(R.drawable.austria);
+
+        //holder.textView.setText(list.get(position));
+        int value = InternationalFragment._utfValue;
+        if(value == 1)
+        {
+            holder.textView.setImageResource(Number2.get(position));
+        }
+        else {
+            holder.textView.setImageResource(Number1.get(position));
+            //holder.textView.setImageResource(R.drawable.belgium);
+        }
     }
 
     @Override

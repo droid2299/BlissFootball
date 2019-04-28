@@ -102,6 +102,7 @@ public class UEFA extends AppCompatActivity {
 
     public void AddItemsToRecyclerViewArrayList(){
 
+
         Number1 = new ArrayList<Integer>();
         Number1.add(R.drawable.austria);
         Number1.add(R.drawable.belgium);
@@ -117,7 +118,7 @@ public class UEFA extends AppCompatActivity {
         Number1.add(R.drawable.ukraine);
 
         Intent myIntent = new Intent(getBaseContext() , RecyclerViewAdapter.class);
-        myIntent.putExtra("flags" , Number1);
+        myIntent.putExtra("flags" , 1);
 
     }
 
