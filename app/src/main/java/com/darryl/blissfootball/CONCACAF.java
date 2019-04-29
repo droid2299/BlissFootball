@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,6 +30,7 @@ public class CONCACAF extends AppCompatActivity {
     LinearLayoutManager HorizontalLayout2 ;
     View ChildView2 ;
     int RecyclerViewItemPosition2 ;
+    public static String position = "0";
 
 
 
@@ -76,9 +78,9 @@ public class CONCACAF extends AppCompatActivity {
 
                     RecyclerViewItemPosition2 = Recyclerview.getChildAdapterPosition(ChildView2);
 
-
+                    position = String.valueOf(recyclerView2.getChildLayoutPosition(ChildView2));
                     Toast.makeText(CONCACAF.this, "Redirecting...", Toast.LENGTH_LONG).show();
-
+                    Log.d("UEFA"  , position);
                 }
 
                 return false;

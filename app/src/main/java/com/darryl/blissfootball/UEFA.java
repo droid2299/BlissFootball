@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,6 +25,7 @@ public class UEFA extends AppCompatActivity {
     LinearLayoutManager HorizontalLayout ;
     View ChildView ;
     int RecyclerViewItemPosition ;
+    public static String position = "0";
 
 
     @Override
@@ -70,8 +72,10 @@ public class UEFA extends AppCompatActivity {
 
                     RecyclerViewItemPosition = Recyclerview.getChildAdapterPosition(ChildView);
 
-
+                    position = String.valueOf(recyclerView.getChildLayoutPosition(ChildView));
                     Toast.makeText(UEFA.this, "Redirecting...", Toast.LENGTH_LONG).show();
+                    Log.d("UEFA"  , position);
+
 
                 }
 
@@ -80,6 +84,7 @@ public class UEFA extends AppCompatActivity {
 
             @Override
             public void onTouchEvent(RecyclerView Recyclerview, MotionEvent motionEvent) {
+
 
             }
 
@@ -109,7 +114,7 @@ public class UEFA extends AppCompatActivity {
         Number1.add(R.drawable.turkey);
         Number1.add(R.drawable.ukraine);
 
-        
+
 
     }
 

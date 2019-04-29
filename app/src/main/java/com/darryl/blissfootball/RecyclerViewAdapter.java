@@ -6,13 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.ZipEntry;
-
-import static android.content.Intent.getIntent;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyView> {
@@ -30,7 +25,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public MyView(View view) {
             super(view);
 
-            textView = (ImageView) view.findViewById(R.id.textview1);
+            textView = view.findViewById(R.id.textview1);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    v.getContext().startActivity(new Intent(v.getContext(), stats.class).putExtra("noOfProcessesCONCACAF" , CONCACAF.position).putExtra("noOfProcessesUEFA" , UEFA.position));
+
+                }
+            });
 
         }
     }

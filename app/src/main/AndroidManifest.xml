@@ -9,15 +9,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UEFA" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".seriea" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".ligue1" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".Legends" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".laliga" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".epl" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".CONCACAF" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".Coaches" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".bundesliga" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".stats"></activity>
+        <activity
+            android:name=".UEFA"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".seriea"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ligue1"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Legends"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".laliga"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".epl"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".CONCACAF"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Coaches"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".bundesliga"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
