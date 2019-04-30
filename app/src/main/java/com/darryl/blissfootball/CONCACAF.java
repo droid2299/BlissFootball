@@ -3,14 +3,21 @@ package com.darryl.blissfootball;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,6 +38,9 @@ public class CONCACAF extends AppCompatActivity {
     View ChildView2 ;
     int RecyclerViewItemPosition2 ;
     public static String position = "0";
+    RecyclerView recyclerView;
+
+
 
 
 
@@ -42,6 +52,7 @@ public class CONCACAF extends AppCompatActivity {
 
 
         recyclerView2 = findViewById(R.id.recyclerview2);
+        recyclerView = findViewById(R.id.rvMain);
 
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
 
@@ -97,6 +108,27 @@ public class CONCACAF extends AppCompatActivity {
             }
         });
 
+
+        Bitmap[] bitmaps = getBitmaps();
+        GridLayoutAdapter myRecyclerAdapter = new GridLayoutAdapter(bitmaps);
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2 , StaggeredGridLayoutManager.VERTICAL ));
+        recyclerView.setAdapter(myRecyclerAdapter);
+
+    }
+
+    private Bitmap[] getBitmaps() {
+        Bitmap[] bitmaps = new Bitmap[6];
+        bitmaps[0] = BitmapFactory.decodeResource(getResources(), R.drawable.goldcup);
+        bitmaps[1] = BitmapFactory.decodeResource(getResources(), R.drawable.nationsleague);
+        bitmaps[2] = BitmapFactory.decodeResource(getResources(), R.drawable.u20);
+        bitmaps[3] = BitmapFactory.decodeResource(getResources(), R.drawable.womensgoldcup);
+        bitmaps[4] = BitmapFactory.decodeResource(getResources(), R.drawable.womenu20);
+        bitmaps[5] = BitmapFactory.decodeResource(getResources(), R.drawable.futsal);
+        //bitmaps[6] = BitmapFactory.decodeResource(getResources(), R.drawable.seriea);
+        //bitmaps[7] = BitmapFactory.decodeResource(getResources(), R.drawable.france);
+        //bitmaps[8] = BitmapFactory.decodeResource(getResources(), R.drawable.austria);
+        //bitmaps[9] = BitmapFactory.decodeResource(getResources(), R.drawable.belgium);
+        return bitmaps;
     }
 
 
@@ -123,7 +155,55 @@ public class CONCACAF extends AppCompatActivity {
 
     }
 
+    private class GridLayoutAdapter extends RecyclerView.Adapter<GridHolder> {
 
+        Bitmap[] bitmaps;
+
+        public GridLayoutAdapter(Bitmap[] bitmaps) {
+            this.bitmaps = bitmaps;
+        }
+
+        @Override
+        public GridHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(CONCACAF.this).inflate(R.layout.grid_rv, parent, false);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent myintent = new Intent(CONCACAF.this , Trophies.class);
+                    startActivity(myintent);
+                }
+            });
+            return new GridHolder(view);
+            //return null;
+        }
+
+        @Override
+        public void onBindViewHolder(GridHolder holder, int position) {
+            holder.imageView.requestLayout();
+            holder.imageView.setImageBitmap(bitmaps[position]);
+            holder.textView.setText("");
+        }
+
+        @Override
+        public int getItemCount() {
+            return bitmaps.length;
+        }
+    }
+
+
+
+    private class GridHolder extends RecyclerView.ViewHolder {
+
+        ImageView imageView;
+        TextView textView;
+
+        public GridHolder(View itemView) {
+            super(itemView);
+            imageView = itemView.findViewById(R.id.ivImage);
+            textView = itemView.findViewById(R.id.tvCaption);
+        }
+    }
 
 
 

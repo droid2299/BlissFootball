@@ -27,10 +27,23 @@ public class stats extends AppCompatActivity {
         Log.d("Position", ""+UEFAposition);
         Log.d("Position", ""+CONCACAFposition);
 
+        UEFAposition = -1;
+        CONCACAFposition = -1;
+
         TextView description = findViewById(R.id.description);
         description.setMovementMethod(new ScrollingMovementMethod());
+        description.setText("");
         ImageView crest= findViewById(R.id.crest);
         TextView title = findViewById(R.id.title);
+        title.setText("");
+
+
+        if(UEFAposition == 0){
+            description.setText(R.string.austriaDescription);
+            title.setText("Austria");
+            UEFAposition = -1;
+            crest.setImageResource(R.drawable.austriac);
+        }
 
         switch (UEFAposition) {
             case 0:
@@ -181,7 +194,6 @@ public class stats extends AppCompatActivity {
                 description.setText("");
                 break;
         }
-
 
 
     }

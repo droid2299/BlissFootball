@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".stats"></activity>
+        <activity android:name=".Trophies"></activity>
+        <activity android:name=".stats" />
         <activity
             android:name=".UEFA"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
