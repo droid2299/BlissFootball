@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class stats extends AppCompatActivity {
 
+    int UEFAposition ,CONCACAFposition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,32 +20,36 @@ public class stats extends AppCompatActivity {
         Intent intent = getIntent();
         String positionCONCACAF = intent.getStringExtra("noOfProcessesCONCACAF");
         String positionUEFA = intent.getStringExtra("noOfProcessesUEFA");
+        UEFAposition = Integer.parseInt(positionUEFA);
+        CONCACAFposition = Integer.parseInt(positionCONCACAF);
+
+
 
         Log.d("Position", positionCONCACAF);
         Log.d("Position", positionUEFA);
 
-        int UEFAposition = Integer.parseInt(positionUEFA);
-        int CONCACAFposition = Integer.parseInt(positionCONCACAF);
+
         Log.d("Position", ""+UEFAposition);
         Log.d("Position", ""+CONCACAFposition);
 
-        UEFAposition = -1;
-        CONCACAFposition = -1;
+
 
         TextView description = findViewById(R.id.description);
         description.setMovementMethod(new ScrollingMovementMethod());
-        description.setText("");
+        //description.setText("");
         ImageView crest= findViewById(R.id.crest);
         TextView title = findViewById(R.id.title);
         title.setText("");
 
 
-        if(UEFAposition == 0){
+        /*if(UEFAposition == 0){
             description.setText(R.string.austriaDescription);
             title.setText("Austria");
             UEFAposition = -1;
             crest.setImageResource(R.drawable.austriac);
-        }
+        }*/
+
+
 
         switch (UEFAposition) {
             case 0:
@@ -130,8 +136,9 @@ public class stats extends AppCompatActivity {
             case 11:
                 description.setText("");
                 description.setText(R.string.ukrainDescription);
-                crest.setImageDrawable(getResources().getDrawable(R.drawable.ukrianec));
+                UEFAposition = -1;
                 title.setText("ukraine");
+                crest.setImageDrawable(getResources().getDrawable(R.drawable.ukrianec));
                 break;
         }
 
@@ -155,11 +162,12 @@ public class stats extends AppCompatActivity {
                 break;
 
             case 2:
-                description.setText("");
+
                 break;
 
             case 3:
                 description.setText("");
+                //description.setText(R.string.);
                 break;
 
             case 4:
@@ -196,5 +204,13 @@ public class stats extends AppCompatActivity {
         }
 
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        UEFAposition = -1;
+        CONCACAFposition = -1;
+        Log.d("BACK PRESSED" , ""+UEFAposition + CONCACAFposition);
     }
 }

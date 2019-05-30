@@ -193,7 +193,7 @@ public class CONCACAF extends AppCompatActivity {
 
 
 
-    private class GridHolder extends RecyclerView.ViewHolder {
+    public static class GridHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
         TextView textView;

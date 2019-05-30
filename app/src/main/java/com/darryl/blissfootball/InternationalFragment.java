@@ -25,6 +25,7 @@ public class InternationalFragment extends Fragment {
 
         ImageButton uefa = v.findViewById(R.id.uefa);
         ImageButton concacaf = v.findViewById(R.id.concaf);
+        ImageButton conmebol = v.findViewById(R.id.conmebol);
 
 
 
@@ -49,6 +50,18 @@ public class InternationalFragment extends Fragment {
 
             }
         });
+
+        conmebol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Bliss Football" , "Button Pressed");
+                Intent myIntent = new Intent(getContext() , CONMEBOL.class);
+                startActivity(myIntent);
+                _utfValue = 3;
+
+            }
+        });
+
 
         return(v);
 

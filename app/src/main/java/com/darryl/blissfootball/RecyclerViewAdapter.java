@@ -2,6 +2,7 @@ package com.darryl.blissfootball;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     //String value = getIntent.getExtra("String key which you used when send value");
     private ArrayList<Integer> list;
-    ArrayList<Integer> Number1 , Number2;
+    ArrayList<Integer> Number1 , Number2 , Number3;
 
     public class MyView extends RecyclerView.ViewHolder {
 
@@ -29,7 +30,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    v.getContext().startActivity(new Intent(v.getContext(), stats.class).putExtra("noOfProcessesCONCACAF" , CONCACAF.position).putExtra("noOfProcessesUEFA" , UEFA.position));
+                    Log.d("RecyclerView" , "UEFA POSITION = " + UEFA.position);
+                    v.getContext().startActivity(new Intent(v.getContext(), stats.class).putExtra("noOfProcessesCONCACAF" , CONCACAF.position).putExtra("noOfProcessesUEFA" , UEFA.position).putExtra("noOfProcessesCONMEBOL" , CONMEBOL.position));
 
                 }
             });
@@ -81,22 +83,44 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Number2.add(R.drawable.suriname);
         Number2.add(R.drawable.us);
 
+        Number3 = new ArrayList<Integer>();
+        Number3.add(R.drawable.argentina);
+        Number3.add(R.drawable.bolivia);
+        Number3.add(R.drawable.uba);
+        Number3.add(R.drawable.chile);
+        Number3.add(R.drawable.columbia);
+        Number3.add(R.drawable.haiti);
+        Number3.add(R.drawable.honduras);
+        Number3.add(R.drawable.mexico);
+        Number3.add(R.drawable.nicaragua);
+        Number3.add(R.drawable.panama);
+        Number3.add(R.drawable.suriname);
+        Number3.add(R.drawable.us);
+
         //Number2.add(R.drawable.austria);
 
-        //holder.textView.setText(list.get(position));
+        //holder.textView.setText(list.get(position));7
         int value = InternationalFragment._utfValue;
         if(value == 1)
         {
             holder.textView.setImageResource(Number2.get(position));
         }
-        else {
+        else if(value == 0) {
             holder.textView.setImageResource(Number1.get(position));
             //holder.textView.setImageResource(R.drawable.belgium);
         }
+
+        else {
+            holder.textView.setImageResource(Number3.get(position));
+            //holder.textView.setImageResource(R.drawable.belgium);
+        }
+
+
     }
 
     @Override
     public int getItemCount() {
+        Log.d("Recyclerview" , ""+list.size());
         return list.size();
     }
 

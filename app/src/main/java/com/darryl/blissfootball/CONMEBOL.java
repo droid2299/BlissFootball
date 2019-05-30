@@ -3,7 +3,6 @@ package com.darryl.blissfootball;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,83 +14,31 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Random;
 
+public class CONMEBOL extends AppCompatActivity {
 
-public class UEFA extends AppCompatActivity {
-
-
-    RecyclerView recyclerView;
-    TextView quote;
-    ArrayList<Integer> Number1;
+    RecyclerView recyclerView3;
+    ArrayList<Integer> Number3;
     RecyclerView.LayoutManager RecyclerViewLayoutManager;
-    RecyclerViewAdapter RecyclerViewHorizontalAdapter;
-    LinearLayoutManager HorizontalLayout ;
-    WebView latestNews;
-    View ChildView ;
-    Typeface typeface;
-    int RecyclerViewItemPosition;
-    int test;
-
+    RecyclerViewAdapter RecyclerViewHorizontalAdapter3;
+    LinearLayoutManager HorizontalLayout3 ;
+    View ChildView3 ;
+    int RecyclerViewItemPosition3 ;
     public static String position = "0";
-    RecyclerView recyclerView1;
-
-
-
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uefa);
+        setContentView(R.layout.activity_conmebol);
 
-
-
-        typeface = Typeface.createFromAsset(getAssets() , "fonts/oldeng.TTF");
         recyclerView = findViewById(R.id.recyclerview1);
-        recyclerView1 = findViewById(R.id.recyclerview);
-        latestNews = findViewById(R.id.latestnews);
-        latestNews.setWebViewClient(new MyBrowser());
-        String url = "https://www.uefa.com";
-        test = new Random().nextInt(4);
-        Log.d("test" , "Test value "+test);
-
-        quote = findViewById(R.id.textView12);
-        quote.setTypeface(typeface);
-
-        switch (test){
-            case 0:
-                quote.setText(R.string.q0);
-                break;
-
-            case 1:
-                quote.setText(R.string.q1);
-                break;
-
-            case 2:
-                quote.setText(R.string.q2);
-                break;
-
-            case 3:
-                quote.setText(R.string.q3);
-                break;
-
-            case 4:
-                quote.setText(R.string.q4);
-                break;
-        }
-
-        latestNews.getSettings().setLoadsImagesAutomatically(true);
-        latestNews.getSettings().setJavaScriptEnabled(true);
-        latestNews.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        latestNews.loadUrl(url);
-
+        recyclerView3 = findViewById(R.id.recyclerview);
 
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
 
@@ -99,18 +46,18 @@ public class UEFA extends AppCompatActivity {
 
         AddItemsToRecyclerViewArrayList();
 
-        RecyclerViewHorizontalAdapter = new RecyclerViewAdapter(Number1);
+        RecyclerViewHorizontalAdapter3 = new RecyclerViewAdapter(Number3);
 
-        HorizontalLayout = new LinearLayoutManager(UEFA.this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(HorizontalLayout);
+        HorizontalLayout3 = new LinearLayoutManager(CONMEBOL.this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(HorizontalLayout3);
 
-        recyclerView.setAdapter(RecyclerViewHorizontalAdapter);
+        recyclerView.setAdapter(RecyclerViewHorizontalAdapter3);
 
 
 
         recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
-            GestureDetector gestureDetector = new GestureDetector(UEFA.this, new GestureDetector.SimpleOnGestureListener() {
+            GestureDetector gestureDetector = new GestureDetector(CONMEBOL.this, new GestureDetector.SimpleOnGestureListener() {
 
                 @Override public boolean onSingleTapUp(MotionEvent motionEvent) {
 
@@ -121,15 +68,15 @@ public class UEFA extends AppCompatActivity {
             @Override
             public boolean onInterceptTouchEvent(RecyclerView Recyclerview, MotionEvent motionEvent) {
 
-                ChildView = Recyclerview.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+                ChildView3 = Recyclerview.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
 
-                if(ChildView != null && gestureDetector.onTouchEvent(motionEvent)) {
+                if(ChildView3 != null && gestureDetector.onTouchEvent(motionEvent)) {
 
 
-                    RecyclerViewItemPosition = Recyclerview.getChildAdapterPosition(ChildView);
+                    RecyclerViewItemPosition3 = Recyclerview.getChildAdapterPosition(ChildView3);
 
-                    position = String.valueOf(recyclerView.getChildLayoutPosition(ChildView));
-                    Toast.makeText(UEFA.this, "Redirecting...", Toast.LENGTH_SHORT).show();
+                    position = String.valueOf(recyclerView.getChildLayoutPosition(ChildView3));
+                    Toast.makeText(CONMEBOL.this, "Redirecting...", Toast.LENGTH_LONG).show();
                     Log.d("UEFA"  , position);
 
 
@@ -151,9 +98,9 @@ public class UEFA extends AppCompatActivity {
         });
 
         Bitmap[] bitmaps = getBitmaps();
-        GridLayoutAdapter myRecyclerAdapter = new GridLayoutAdapter(bitmaps);
-        recyclerView1.setLayoutManager(new StaggeredGridLayoutManager(2 , StaggeredGridLayoutManager.VERTICAL ));
-        recyclerView1.setAdapter(myRecyclerAdapter);
+        CONMEBOL.GridLayoutAdapter myRecyclerAdapter = new CONMEBOL.GridLayoutAdapter(bitmaps);
+        recyclerView3.setLayoutManager(new StaggeredGridLayoutManager(2 , StaggeredGridLayoutManager.VERTICAL ));
+        recyclerView3.setAdapter(myRecyclerAdapter);
 
     }
 
@@ -177,25 +124,25 @@ public class UEFA extends AppCompatActivity {
     public void AddItemsToRecyclerViewArrayList(){
 
 
-        Number1 = new ArrayList<Integer>();
-        Number1.add(R.drawable.austria);
-        Number1.add(R.drawable.belgium);
-        Number1.add(R.drawable.france);
-        Number1.add(R.drawable.germany);
-        Number1.add(R.drawable.ireland);
-        Number1.add(R.drawable.netherland);
-        Number1.add(R.drawable.portugal);
-        Number1.add(R.drawable.russia);
-        Number1.add(R.drawable.spain);
-        Number1.add(R.drawable.switzerland);
-        Number1.add(R.drawable.turkey);
-        Number1.add(R.drawable.ukraine);
+        Number3 = new ArrayList<Integer>();
+        Number3.add(R.drawable.argentina);
+        Number3.add(R.drawable.bolivia);
+        Number3.add(R.drawable.france);
+        Number3.add(R.drawable.chile);
+        Number3.add(R.drawable.columbia);
+        Number3.add(R.drawable.netherland);
+        Number3.add(R.drawable.portugal);
+        Number3.add(R.drawable.russia);
+        Number3.add(R.drawable.spain);
+        Number3.add(R.drawable.switzerland);
+        Number3.add(R.drawable.turkey);
+        Number3.add(R.drawable.ukraine);
 
 
 
     }
 
-    private class GridLayoutAdapter extends RecyclerView.Adapter<UEFA.GridHolder> {
+    private class GridLayoutAdapter extends RecyclerView.Adapter<CONMEBOL.GridHolder> {
 
         Bitmap[] bitmaps;
 
@@ -204,22 +151,22 @@ public class UEFA extends AppCompatActivity {
         }
 
         @Override
-        public UEFA.GridHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(UEFA.this).inflate(R.layout.grid_rv, parent, false);
+        public CONMEBOL.GridHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(CONMEBOL.this).inflate(R.layout.grid_rv, parent, false);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent myintent = new Intent(UEFA.this , Trophies.class);
+                    Intent myintent = new Intent(CONMEBOL.this , Trophies.class);
                     startActivity(myintent);
                 }
             });
-            return new UEFA.GridHolder(view);
+            return new CONMEBOL.GridHolder(view);
             //return null;
         }
 
 
         @Override
-        public void onBindViewHolder(UEFA.GridHolder holder, int position) {
+        public void onBindViewHolder(CONMEBOL.GridHolder holder, int position) {
             holder.imageView.requestLayout();
             holder.imageView.setImageBitmap(bitmaps[position]);
             holder.textView.setText("");
@@ -244,17 +191,4 @@ public class UEFA extends AppCompatActivity {
             textView = itemView.findViewById(R.id.tvCaption);
         }
     }
-
-    private class MyBrowser extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            return true;
-        }
-    }
-
 }
-
-
-
-
